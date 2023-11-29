@@ -116,16 +116,15 @@ class SlideService extends BaseService
             return [null, new \Exception('参数校验失败: token')];
         }
 
+        // 如果传入的point与缓存结果不一致
+        if($pointJson != $cacheData['point']){
+            return [null, new \Exception('验证不通过')];
+        }
+
         // 获取解码出来的前端坐标结果
         $decodePointDataResult = $this->decodePoint($cacheData['secretKey'], $pointJson);
-        // 失败
-        if(is_null($decodePointDataResult[0])){
-            return $decodePointDataResult;
-        }
-        // 获取结果
-        $pointData = $decodePointDataResult[0];
-        // 如果解码结果与缓存结果不一致
-        if($pointData == $cacheData['point']){
+        // 成功
+        if(!is_null($decodePointDataResult[0])){
             return ['验证通过', null];
         }
         // 返回失败
