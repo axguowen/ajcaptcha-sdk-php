@@ -1,0 +1,29 @@
+{
+    "name": "axguowen/ajcaptcha-sdk-php",
+    "description": "AJ-Captcha SDK for PHP",
+    "keywords": [
+        "ajcaptcha",
+        "sdk",
+        "php"
+    ],      
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "axguowen",
+            "email": "axguowen@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-gd": "*",
+        "ext-openssl": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "intervention/image": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "axguowen\\": "src"
+        }
+    }
+}
